@@ -72,7 +72,7 @@ public class CustomerDetailsBean implements Serializable {
      */
     public List<Discount> getDiscounts() {
         List<Discount> allDiscounts = discountManager.getAllDiscounts();
-        Collections.sort(allDiscounts, Comparator.comparing(Discount::getRate));
+        Collections.sort(allDiscounts, Comparator.comparing(Discount::getRate).reversed());
         return allDiscounts;
     }
 }
