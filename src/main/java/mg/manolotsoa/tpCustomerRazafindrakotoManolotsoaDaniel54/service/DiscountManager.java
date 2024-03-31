@@ -4,6 +4,7 @@
  */
 package mg.manolotsoa.tpCustomerRazafindrakotoManolotsoaDaniel54.service;
 
+import jakarta.enterprise.context.RequestScoped;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.Query;
@@ -12,11 +13,14 @@ import java.util.List;
 import mg.manolotsoa.tpCustomerRazafindrakotoManolotsoaDaniel54.entity.Discount;
 
 /**
+ * Gère la persistance des Discounts.
  *
  * @author manou
  */
+@RequestScoped
 public class DiscountManager {
-    @PersistenceContext(unitName = "discountPU")
+
+    @PersistenceContext(unitName = "customerPU")
     private EntityManager em;
 
     public List<Discount> getAllDiscounts() {
