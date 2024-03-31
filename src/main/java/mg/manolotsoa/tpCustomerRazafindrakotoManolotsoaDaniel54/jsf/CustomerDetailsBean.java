@@ -8,8 +8,11 @@ import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
 import java.io.Serializable;
+import java.util.List;
 import mg.manolotsoa.tpCustomerRazafindrakotoManolotsoaDaniel54.entity.Customer;
+import mg.manolotsoa.tpCustomerRazafindrakotoManolotsoaDaniel54.entity.Discount;
 import mg.manolotsoa.tpCustomerRazafindrakotoManolotsoaDaniel54.service.CustomerManager;
+import mg.manolotsoa.tpCustomerRazafindrakotoManolotsoaDaniel54.service.DiscountManager;
 
 /**
  *
@@ -24,6 +27,9 @@ public class CustomerDetailsBean implements Serializable {
 
     @Inject
     private CustomerManager customerManager;
+
+    @Inject
+    private DiscountManager discountManager;
 
     public int getIdCustomer() {
         return idCustomer;
@@ -57,5 +63,12 @@ public class CustomerDetailsBean implements Serializable {
 
     public void loadCustomer() {
         this.customer = this.customerManager.findById(idCustomer);
+    }
+
+    /**
+     * Retourne la liste de tous les Discount.
+     */
+    public List<Discount> getDiscounts() {
+        return discountManager.getAllDiscounts();
     }
 }
