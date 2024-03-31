@@ -8,6 +8,8 @@ import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
 import java.io.Serializable;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import mg.manolotsoa.tpCustomerRazafindrakotoManolotsoaDaniel54.entity.Customer;
 import mg.manolotsoa.tpCustomerRazafindrakotoManolotsoaDaniel54.entity.Discount;
@@ -69,6 +71,8 @@ public class CustomerDetailsBean implements Serializable {
      * Retourne la liste de tous les Discount.
      */
     public List<Discount> getDiscounts() {
-        return discountManager.getAllDiscounts();
+        List<Discount> allDiscounts = discountManager.getAllDiscounts();
+        Collections.sort(allDiscounts, Comparator.comparing(Discount::getRate));
+        return allDiscounts;
     }
 }
