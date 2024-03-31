@@ -3,6 +3,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="jakarta.faces.html"
       xmlns:f="jakarta.faces.core">
+    <f:metadata>
+        <f:viewParam name="idCustomer" value="#{customerDetailsBean.idCustomer}"
+                     required="true"/>
+        <f:viewAction action="#{customerDetailsBean.loadCustomer}"/>
+    </f:metadata>
     <h:head>
         <title>Détails d'un client</title>
     </h:head>
@@ -13,6 +18,8 @@
                 <h:panelGrid columns="2">
                     <h:outputLabel value="CustomerId:" for="customerId" />
                     <h:inputText id="customerId" readonly="true" value="#{customerDetailsBean.customer.customerId}" title="CustomerId" required="true" requiredMessage="The CustomerId field is required."/>
+                    <h:outputLabel value="Zip:" for="zip" />
+                    <h:inputText id="zip" value="#{customerDetailsBean.customer.zip.zipCode}" title="Zip" />
                     <h:outputLabel value="Name:" for="name" />
                     <h:inputText id="name" value="#{customerDetailsBean.customer.name}" title="Name" />
                     <h:outputLabel value="Addressline1:" for="addressline1" />

@@ -56,6 +56,6 @@ public class CustomerDetailsBean implements Serializable {
     }
 
     public void loadCustomer() {
-        this.customer = customerManager.findById(idCustomer);
+        this.customer = this.customerManager.findById(idCustomer);
     }
 }
