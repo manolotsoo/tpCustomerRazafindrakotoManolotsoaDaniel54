@@ -47,7 +47,10 @@
                                        itemValue="#{discountF}"
                                        />
                     </h:selectOneMenu>
+                    <h:button id="back" value="Revenir à la liste" outcome="customerList"/>
+                    <h:commandButton id="update" value="Enregistrer" action="#{customerDetailsBean.update}"/>
                 </h:panelGrid>
+                <h:messages/>
             </h:form>
         </f:view>
 
