@@ -28,6 +28,16 @@ public class DiscountManager {
         return query.getResultList();
     }
 
+    public List<Discount> getAllDiscountsOrderByAsc() {
+        Query query = em.createNamedQuery("Discount.findAllRateAsc");
+        return query.getResultList();
+    }
+
+    public List<Discount> getAllDiscountsOrderByDesc() {
+        Query query = em.createNamedQuery("Discount.findAllRateDesc");
+        return query.getResultList();
+    }
+
     @Transactional
     public Discount update(Discount discount) {
         return em.merge(discount);
